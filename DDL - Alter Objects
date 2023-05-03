@@ -1,0 +1,53 @@
+# Altering Objects
+
+--alter user
+
+alter user mytest account lock;
+
+--try to connect database with mytest
+
+
+alter user mytest account unlock;
+
+--try to connect to database with mytest
+
+alter mytest identified by new_pass;
+
+--alter table
+
+alter table test_tab1 drop column birth_date;
+
+-- connect to database with hosapp
+
+alter table doctors add department number;
+
+alter table patient modify phone varchar2(15);
+
+--add constraints
+
+--primary keys
+alter table doctors add constraint doctors_pk primary key (doctorid) using index tablespace tbs_index;
+
+alter table inspections add constraint inspections_pk primary key (inspectionid) using index tablespace tbs_index;
+
+alter table patient add constraint patient_pk primary key (patientid) using index tablespace tbs_index;
+
+alter table inspectiondetail add constraint inspectiondetail_pk primary key (inspectiondetailid) using index tablespace tbs_index;
+
+alter table department add constraint department_pk primary key (departmentid) using index tablespace tbs_index;
+
+--foreign keys
+alter table doctors add constraint fk_doctors_01 foreign key (department) references department (departmentid);
+
+alter table inspections add constraint fk_inspections_01 foreign key (patientid) references patient (patientid);
+
+alter table inspections add constraint fk_inspections_02 foreign key (doctorid) references doctors (doctorid);
+
+alter table inspectiondetail add constraint fk_inspectiondetail_01 foreign key (inspectionid) references inspections (inspectionid);
+
+
+
+
+
+
+

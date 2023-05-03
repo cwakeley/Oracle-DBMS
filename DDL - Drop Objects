@@ -1,0 +1,25 @@
+#Dropping Objects from Database
+
+--connect database with hosapp
+
+drop public synonym patient;
+
+--connect database with mytest
+
+drop table test_tab3;
+
+drop table test_tab2 purge;
+
+--connect database with hosapp
+
+select * from dba_recyclebin where owner = 'MYTEST';
+
+drop user mytest;
+
+/*OPTIONAL
+We will use tables that we create with hosapp on further sections.
+But we made some alteration on these tables. So you can prefer to create them from begining. 
+If you think so please run this.
+*/
+
+drop user hosapp cascade;

@@ -1,0 +1,20 @@
+#Create Synonyms for the database object
+
+create public synonym doctors for doctors;
+
+create public synonym inspections for inspections;
+
+create public synonym patient for patient;
+
+create public synonym department for department;
+
+create public synonym inspectiondetail for inspectiondetail;
+
+create public synonym test_tab1 for mytest.test_tab1;
+
+
+--connect database with mytest user
+
+create public synonym test_tab2 for test_tab2;
+
+create public synonym test_tab4 for test_tab3;
